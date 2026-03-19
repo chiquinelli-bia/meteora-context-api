@@ -5,7 +5,7 @@ import Titulo from "@/components/Titulo";
 import { CarrinhoContext } from "@/context/contextCarrinho";
 
 const Produtos = ({}) => {
-  const [carrinho, setCarrinho] = useContext(CarrinhoContext);
+  const { carrinho, setCarrinho } = useContext(CarrinhoContext);
 
   function adicionarProduto(novoProduto) {
     const temProduto = carrinho.some(
