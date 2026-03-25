@@ -11,31 +11,32 @@ export const useCarrinho = () => {
     setQuantidade,
   } = useContext(CarrinhoContext);
 
-  function mudarQuantidade(id, quantidade) {
+  function mudarQuantidade(id, valor) {
     return carrinho.map((item) => {
+      if (!item) return item;
+
       if (item.id === id) {
         return {
           ...item,
-          quantidade: item.quantidade + quantidade,
+          quantidade: (item.quantidade || 0) + valor,
         };
       }
+
       return item;
     });
   }
 
   function adicionarProduto(novoProduto) {
+    if (!novoProduto) return;
+
     const temProduto = carrinho.some(
-      (produto) => produto.id === novoProduto.id,
+      (produto) => produto && produto.id === novoProduto.id,
     );
+
     if (!temProduto) {
-      novoProduto.quantidade = 1;
-      return setCarrinho((carrinhoAnterior) => [
-        ...carrinhoAnterior,
-        novoProduto,
-      ]);
+      setCarrinho((prev) => [...prev, { ...novoProduto, quantidade: 1 }]);
     } else {
-      const carrinhoAtualizado = mudarQuantidade(novoProduto.id, 1);
-      setCarrinho([...carrinhoAtualizado]);
+      setCarrinho(mudarQuantidade(novoProduto.id, 1));
     }
   }
 
