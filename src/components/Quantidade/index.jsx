@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Botao from "@/components/Botao";
 import Titulo from "@/components/Titulo";
 import { useLocation } from "react-router-dom";
+import { useCarrinho } from "../../hooks/useCarrinho";
 
-const Quantidade = ({ itemCarrinho, adicionarProduto, removerProduto }) => {
+const Quantidade = ({ itemCarrinho }) => {
+  useEffect(() => {
+    console.log("itemCarrinho:", itemCarrinho);
+  }, [itemCarrinho]);
+  const { adicionarProduto, removerProduto } = useCarrinho();
   const location = useLocation();
 
   return (
@@ -21,17 +26,23 @@ const Quantidade = ({ itemCarrinho, adicionarProduto, removerProduto }) => {
         <Botao
           variant="removeItem"
           aria-label="Remover item"
-          handleClick={() => removerProduto(itemCarrinho.id)}
+          handleClick={() => {
+            if (!itemCarrinho) return;
+            removerProduto(itemCarrinho.id);
+          }}
         >
           -
         </Botao>
         <span className="border px-4 rounded" aria-label="Quantidade">
-          {itemCarrinho.quantidade || 0}
+          {itemCarrinho?.quantidade || 0}
         </span>
         <Botao
           variant="addItem"
           aria-label="Adicionar item"
-          handleClick={() => adicionarProduto(itemCarrinho)}
+          handleClick={() => {
+            if (!itemCarrinho) return;
+            adicionarProduto(itemCarrinho);
+          }}
         >
           +
         </Botao>
