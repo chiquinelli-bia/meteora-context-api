@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import Quantidade from "@/components/Quantidade";
 import Botao from "@/components/Botao";
 import ValorFormatado from "@/components/ValorFormatado";
