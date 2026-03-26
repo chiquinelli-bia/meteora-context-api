@@ -1,6 +1,7 @@
 import ItemCarrinhoSuspenso from "@/components/CarrinhoSuspenso/ItemCarrinhoSuspenso";
 import ItemCarrinho from "@/components/ItemCarrinho";
 import { useLocation } from "react-router-dom";
+import { useCarrinho } from "@/hooks/useCarrinho";
 
 const ListaProdutosCarrinho = ({ carrinho }) => {
   const location = useLocation();
