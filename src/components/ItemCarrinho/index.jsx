@@ -2,8 +2,11 @@ import Botao from "@/components/Botao";
 import Quantidade from "@/components/Quantidade";
 import ValorFormatado from "@/components/ValorFormatado";
 import InfoItemCarrinho from "./InfoItemCarrinho";
+import { useCarrinho } from "@/hooks/useCarrinho";
 
-const ItemCarrinho = ({ itemCarrinho, adicionarProduto }) => {
+const ItemCarrinho = ({ itemCarrinho }) => {
+  const { removerProdutoCarrinho } = useCarrinho();
+
   return (
     <li key={itemCarrinho.id}>
       <>
@@ -15,7 +18,7 @@ const ItemCarrinho = ({ itemCarrinho, adicionarProduto }) => {
           />
           <InfoItemCarrinho itemCarrinho={itemCarrinho} />
           <ValorFormatado valor={itemCarrinho.preco} />
-          <Quantidade adicionarProduto={adicionarProduto} />
+          <Quantidade itemCarrinho={itemCarrinho} />
           <Botao
             variant="deleteItem"
             aria-label="Excluir"

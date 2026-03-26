@@ -4,8 +4,7 @@ import ValorFormatado from "@/components/ValorFormatado";
 import { useCarrinho } from "@/hooks/useCarrinho";
 
 const ItemCarrinhoSuspenso = ({ itemCarrinho }) => {
-  const { adicionarProduto, removerProduto, removerProdutoCarrinho } =
-    useCarrinho();
+  const { removerProdutoCarrinho } = useCarrinho();
 
   return (
     <li>
@@ -18,11 +17,7 @@ const ItemCarrinhoSuspenso = ({ itemCarrinho }) => {
           />
           <div className="d-flex flex-column gap-3 w-100">
             <p className="fw-semibold fs-5 m-0">{itemCarrinho.titulo}</p>
-            <Quantidade
-              itemCarrinho={itemCarrinho}
-              adicionarProduto={adicionarProduto}
-              removerProduto={removerProduto}
-            />
+            <Quantidade itemCarrinho={itemCarrinho} />
             <ValorFormatado valor={itemCarrinho.preco} />
           </div>
           <Botao

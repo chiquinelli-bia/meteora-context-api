@@ -7,7 +7,7 @@ import BannerCarrinho from "@/components/BannerCarrinho";
 import { useCarrinho } from "@/hooks/useCarrinho";
 
 const Carrinho = () => {
-  const { valorTotal, quantidade } = useCarrinho();
+  const { carrinho } = useCarrinho();
   return (
     <>
       <BarraNavegacao />
@@ -22,12 +22,9 @@ const Carrinho = () => {
               <Titulo className="text-center fw-bold mb-3 text-md-start">
                 Detalhes da compra
               </Titulo>
-              <ListaProdutosCarrinho />
+              <ListaProdutosCarrinho carrinho={carrinho} />
             </div>
-            <Sumario
-              valorTotalCarrinho={valorTotal}
-              quantidadeProdutos={quantidade}
-            />
+            <Sumario />
           </div>
         </section>
       </main>
