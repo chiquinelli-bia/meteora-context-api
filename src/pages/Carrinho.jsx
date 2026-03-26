@@ -8,7 +8,6 @@ import { useCarrinho } from "@/hooks/useCarrinho";
 
 const Carrinho = () => {
   const { carrinho } = useCarrinho();
-
   return (
     <>
       <BarraNavegacao />

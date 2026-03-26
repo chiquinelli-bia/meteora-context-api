@@ -5,9 +5,6 @@ import { useLocation } from "react-router-dom";
 import { useCarrinho } from "../../hooks/useCarrinho";
 
 const Quantidade = ({ itemCarrinho }) => {
-  useEffect(() => {
-    console.log("itemCarrinho:", itemCarrinho);
-  }, [itemCarrinho]);
   const { adicionarProduto, removerProduto } = useCarrinho();
   const location = useLocation();
 
