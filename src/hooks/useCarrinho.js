@@ -46,8 +46,14 @@ export const useCarrinho = () => {
     );
   }
   function removerProduto(itemCarrinhoId) {
-    const carrinhoAtualizado = mudarQuantidade(itemCarrinhoId, -1);
-    setCarrinho([...carrinhoAtualizado]);
+    const item = carrinho.find((item) => item.id === itemCarrinhoId);
+    if (!item) return;
+    if (item.quantidade === 1) {
+      removerProdutoCarrinho(itemCarrinhoId);
+    } else {
+      const carrinhoAtualizado = mudarQuantidade(itemCarrinhoId, -1);
+      setCarrinho([...carrinhoAtualizado]);
+    }
   }
   useEffect(() => {
     const { totalTemp, quantidadeTemp } = carrinho.reduce(
