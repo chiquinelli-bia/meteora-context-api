@@ -1,68 +1,62 @@
-![Meteora](thumbnail.png)
-
 # Meteora - E-commerce de Moda
 
-O Meteora é um projeto de e-commerce em fase de desenvolvimento inicial. Este README fornece informações sobre o projeto, suas funcionalidades e como executá-lo em seu ambiente local.
+![Thumbnail do projeto. O título é “Meteora - gerenciamento de dados com Context API” e o Subtítulo é “adaptado por Bianca Chiquinelli.”](meteora.png)
 
-![GIF da aplicação em execução](meteora-app.gif)
-
-## 🔨 Funcionalidades do projeto
-
-Neste estágio inicial de desenvolvimento, o Meteora possui as seguintes funcionalidades:
+O Meteora é uma aplicação de e-commerce em desenvolvimento, com foco na gestão eficiente de estado e na construção de uma interface reativa e escalável.  
+O Meteora possui as seguintes funcionalidades:
 
 - Adicionar itens ao carrinho
 - Remover itens do carrinho
-- Visualizar a página do carrinho
-- Deletar itens do carrinho
+- Atualizar quantidade de produtos
+- Visualizar o carrinho
 
-O [Figma dessa aplicação você encontra aqui](https://www.figma.com/file/R5ATrWK1nC44Eyeo6XZXlr/Meteora---Context-API?node-id=2386%3A2430&mode=dev).
+![GIF da aplicação em execução](meteora-app.gif)
+
+## Minhas Contribuições
+
+Atuei na evolução da arquitetura e da lógica do carrinho, com foco em previsibilidade de estado, performance e robustez da aplicação.
+
+- **Gerenciamento de estado global:** Estruturei o carrinho com `Context API` + `useReducer`, centralizando regras de negócio e eliminando prop drilling.
+- **Padronização de lógica com reducer:** Organizei ações como adicionar, remover e atualizar quantidade, garantindo um fluxo de estado mais previsível e escalável.
+- **Criação de hook customizado (`useCarrinho`):** Abstraí o acesso e manipulação do estado, simplificando o consumo nos componentes e melhorando a organização do código.
+- **Resiliência e validações:** Implementei proteções em funções e handlers, garantindo estados válidos e prevenindo erros em tempo de execução (como quantidades negativas e remoções incorretas).
+- **Refatoração de componentes:** Reestruturei carrinho e seus componentes filhos para reduzir complexidade, melhorar legibilidade e evitar re-renderizações desnecessárias.
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
 O projeto Meteora utiliza as seguintes tecnologias e bibliotecas:
 
-- `React` - Framework JavaScript
-- `Vite` - Build tool para desenvolvimento rápido
-- `JavaScript` - Linguagem de programação principal
-- `Context API` - Para gerenciamento de estado
-- `useReducer` - Para controle de estado
-- `useMemo` - Para otimização de desempenho
-- `Bootstrap` - Framework de design e componentes
+- `React` - Construção de interfaces com componentes reutilizáveis
+- `Vite` - Ambiente de desenvolvimento rápido e otimizado
+- `JavaScript (ES6+)` - Manipulação de dados e controle de fluxo
+- `Context API` - Gerenciamento de estado global
+- `Hooks nativos` - (`useMemo`) Para otimização de desempenho e (`useReducer`) Para controle de dados
+- `Hooks customizados` - Abstração e reutilização de lógica (`useCarrinho`)
 
-## 🛠️ Abrir e rodar o projeto
+## ⚙️ Abordagens utilizadas
 
-Para executar o projeto Meteora em seu ambiente local, siga estas etapas:
+- **Gerenciamento de estado:** Estrutura baseada em `Context API` + `useReducer`, separando regras de negócio da camada de interface e garantindo previsibilidade do estado.
 
-1. Certifique-se de ter o Node.js instalado em sua máquina.
+- **Organização e escalabilidade:** Uso de hooks customizados para desacoplar lógica dos componentes, facilitando manutenção e reutilização.
 
-2. Baixe o repositório do projeto:
+- **Performance:** Aplicação de `useMemo` para evitar reprocessamentos desnecessários em estados derivados.
 
-3. Extraia os arquivos para uma pasta de sua preferência.
+## Como ter acesso ao projeto
 
-4. Navegue até a pasta em questão via terminal (cmd):
+- **Versão online:** https://meteora-context-api-nu.vercel.app/
 
-```bash
-cd repo-meteora
-```
-
-5. Instale as dependências usando o npm:
+- **Rodar localmente:**
 
 ```bash
+# clone
+git clone https://github.com/chiquinelli-bia/meteora-context-api
+
+# entrar na pasta
+cd meteora-context-api
+
+# instalar dependências
 npm install
-```
 
-6. Inicie o projeto localmente:
-
-```bash
+# rodar projeto
 npm run dev
 ```
-
-7. Abra seu navegador e acesse a url exibida no seu terminal para visualizar o projeto.
-
-## 📚 Mais informações do projeto
-
-O Meteora é um e-commerce fictício de moda em constante desenvolvimento. Este projeto visa aprimorar as habilidades em React, e apresentar a Context API como uma solução para gerenciamento de estados globais de uma aplicação React.
-
-O design e protótipo deste projeto podem ser encontrados [aqui](https://www.figma.com/file/R5ATrWK1nC44Eyeo6XZXlr/Meteora---Context-API?node-id=2386%3A2430&mode=dev).
-
-Aproveite o desenvolvimento e aprimoramento do Meteora!
